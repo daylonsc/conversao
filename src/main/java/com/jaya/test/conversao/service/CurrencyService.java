@@ -4,6 +4,7 @@ import com.jaya.test.conversao.client.ForeignExchangeRatesClient;
 import com.jaya.test.conversao.controller.request.CurrencyRequest;
 import com.jaya.test.conversao.controller.response.CurrencyResponse;
 import com.jaya.test.conversao.controller.response.RateResponse;
+import com.jaya.test.conversao.domain.Transaction;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,11 +18,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class CurrencyService {
 
-    @Autowired
-    private ForeignExchangeRatesClient ratesClient;
+    private final ForeignExchangeRatesClient ratesClient;
+    private final TransactionService transactionService;
 
     public CurrencyResponse convert(CurrencyRequest request){
-        return build(request, getRate(request));
+        CurrencyResponse currencyResponse = build(request, getRate(request));
+        Transaction transaction = transactionService.save(currencyResponse);
+        currencyResponse.setTransactionId(transaction.getId());
+        return currencyResponse;
     }
 
     private RateResponse getRate(CurrencyRequest request) {
@@ -30,7 +34,6 @@ public class CurrencyService {
 
     private CurrencyResponse build(CurrencyRequest request, RateResponse rateResponse){
         return CurrencyResponse.builder()
-                .transactionId(1L)
                 .currencyFrom(request.getCurrencyFrom())
                 .currencyTo(request.getCurrencyTo())
                 .rate(getRateByCurrency(request, rateResponse))

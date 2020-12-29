@@ -1,8 +1,8 @@
 package com.jaya.test.conversao.controller;
 
-import com.jaya.test.conversao.controller.request.ConversionRequest;
-import com.jaya.test.conversao.controller.response.RateResponse;
-import com.jaya.test.conversao.service.TransactionService;
+import com.jaya.test.conversao.controller.request.CurrencyRequest;
+import com.jaya.test.conversao.controller.response.CurrencyResponse;
+import com.jaya.test.conversao.service.CurrencyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,15 +15,15 @@ import javax.validation.Valid;
 import static org.springframework.http.HttpStatus.OK;
 
 @RestController
-@RequestMapping("/api/v1/transactions")
+@RequestMapping("/api/v1/currencies")
 @RequiredArgsConstructor
-public class TransactionController {
+public class CurrencyController {
 
-    private final TransactionService service;
+    private final CurrencyService service;
 
     @ResponseStatus(OK)
     @PostMapping
-    public RateResponse convert(@Valid @RequestBody ConversionRequest request) {
+    public CurrencyResponse convert(@Valid @RequestBody CurrencyRequest request) {
         return service.convert(request);
     }
 }

@@ -31,7 +31,7 @@ public class Transaction implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserMain user;
     private String currencyFrom;
     private String currencyTo;
     private BigDecimal valueFrom;

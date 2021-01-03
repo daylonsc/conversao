@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import static org.springframework.http.HttpStatus.OK;
@@ -23,7 +24,7 @@ public class CurrencyController {
 
     @ResponseStatus(OK)
     @PostMapping
-    public CurrencyResponse convert(@Valid @RequestBody CurrencyRequest request) {
-        return service.convert(request);
+    public CurrencyResponse convert(@Valid @RequestBody CurrencyRequest request, HttpServletRequest httpRequest) {
+        return service.convert(request, httpRequest);
     }
 }

@@ -6,10 +6,10 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableFeignClients("com.jaya.test.conversao.client")
 @SpringBootApplication
-public class ConversaoApplication {
+public class ConversionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ConversaoApplication.class, args);
+        SpringApplication.run(ConversionApplication.class, args);
     }
 
 }

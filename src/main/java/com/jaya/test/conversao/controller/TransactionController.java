@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.OK;
@@ -21,7 +22,7 @@ public class TransactionController {
 
     @ResponseStatus(OK)
     @GetMapping
-    public List<TransactionUserResponse> listTransactionsByUser(){
-        return service.getTransactions();
+    public List<TransactionUserResponse> listTransactionsByUser(HttpServletRequest request) {
+        return service.getTransactions(request);
     }
 }

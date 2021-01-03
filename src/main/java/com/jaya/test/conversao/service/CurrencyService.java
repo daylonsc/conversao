@@ -6,9 +6,9 @@ import com.jaya.test.conversao.controller.response.CurrencyResponse;
 import com.jaya.test.conversao.controller.response.RateResponse;
 import com.jaya.test.conversao.domain.Transaction;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -21,10 +21,11 @@ public class CurrencyService {
     private final ForeignExchangeRatesClient ratesClient;
     private final TransactionService transactionService;
 
-    public CurrencyResponse convert(CurrencyRequest request){
+    public CurrencyResponse convert(CurrencyRequest request, HttpServletRequest httpRequest){
         CurrencyResponse currencyResponse = build(request, getRate(request));
-        Transaction transaction = transactionService.save(currencyResponse);
+        Transaction transaction = transactionService.save(currencyResponse, httpRequest);
         currencyResponse.setTransactionId(transaction.getId());
+        currencyResponse.setUserId(transaction.getUser().getId());
         return currencyResponse;
     }
 

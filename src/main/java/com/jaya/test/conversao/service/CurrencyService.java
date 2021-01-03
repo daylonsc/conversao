@@ -5,6 +5,8 @@ import com.jaya.test.conversao.controller.request.CurrencyRequest;
 import com.jaya.test.conversao.controller.response.CurrencyResponse;
 import com.jaya.test.conversao.controller.response.RateResponse;
 import com.jaya.test.conversao.domain.Transaction;
+import com.jaya.test.conversao.exception.BadRequestException;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,7 @@ public class CurrencyService {
     private final TransactionService transactionService;
 
     public CurrencyResponse convert(CurrencyRequest request, HttpServletRequest httpRequest){
+        validate(request);
         CurrencyResponse currencyResponse = build(request, getRate(request));
         Transaction transaction = transactionService.save(currencyResponse, httpRequest);
         currencyResponse.setTransactionId(transaction.getId());
@@ -29,8 +32,18 @@ public class CurrencyService {
         return currencyResponse;
     }
 
+    private void validate(CurrencyRequest request) {
+        if (request.getValue().compareTo(BigDecimal.ZERO) != 1) {
+            throw new BadRequestException("Value can not be less than Zero or equal to Zero.");
+        }
+    }
+
     private RateResponse getRate(CurrencyRequest request) {
-        return ratesClient.getRate(List.of(request.getCurrencyFrom(), request.getCurrencyTo()), request.getCurrencyFrom());
+        try{
+            return ratesClient.getRate(List.of(request.getCurrencyFrom(), request.getCurrencyTo()), request.getCurrencyFrom());
+        }catch (FeignException ex){
+            throw new BadRequestException("exchangeratesapi is not available", ex);
+        }
     }
 
     private CurrencyResponse build(CurrencyRequest request, RateResponse rateResponse){

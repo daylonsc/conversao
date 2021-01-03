@@ -1,4 +1,4 @@
-package com.jaya.test.conversao.controller.response;
+package com.jaya.test.conversion.controller.response;
 
 import lombok.Data;
 

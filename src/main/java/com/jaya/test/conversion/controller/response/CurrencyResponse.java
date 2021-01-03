@@ -1,24 +1,24 @@
-package com.jaya.test.conversao.controller.response;
+package com.jaya.test.conversion.controller.response;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class TransactionUserResponse implements Serializable {
+public class CurrencyResponse implements Serializable {
     private Long transactionId;
+    private Long userId;
     private String currencyFrom;
     private String currencyTo;
     private BigDecimal valueFrom;
+    private BigDecimal valueTo;
     private BigDecimal rate;
     private LocalDateTime dateTimeUtc;
 }

@@ -1,4 +1,4 @@
-package com.jaya.test.conversao.security;
+package com.jaya.test.conversion.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

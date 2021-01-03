@@ -1,11 +1,11 @@
-package com.jaya.test.conversao.service;
+package com.jaya.test.conversion.service;
 
-import com.jaya.test.conversao.client.ForeignExchangeRatesClient;
-import com.jaya.test.conversao.controller.request.CurrencyRequest;
-import com.jaya.test.conversao.controller.response.CurrencyResponse;
-import com.jaya.test.conversao.controller.response.RateResponse;
-import com.jaya.test.conversao.domain.Transaction;
-import com.jaya.test.conversao.exception.BadRequestException;
+import com.jaya.test.conversion.client.ForeignExchangeRatesClient;
+import com.jaya.test.conversion.controller.request.CurrencyRequest;
+import com.jaya.test.conversion.controller.response.CurrencyResponse;
+import com.jaya.test.conversion.controller.response.RateResponse;
+import com.jaya.test.conversion.domain.Transaction;
+import com.jaya.test.conversion.exception.BadRequestException;
 import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

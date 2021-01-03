@@ -1,7 +1,7 @@
-package com.jaya.test.conversao.service;
+package com.jaya.test.conversion.service;
 
-import com.jaya.test.conversao.domain.UserMain;
-import com.jaya.test.conversao.repository.UserRepository;
+import com.jaya.test.conversion.domain.UserMain;
+import com.jaya.test.conversion.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;

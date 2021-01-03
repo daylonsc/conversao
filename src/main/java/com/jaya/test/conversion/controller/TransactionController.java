@@ -1,7 +1,7 @@
-package com.jaya.test.conversao.controller;
+package com.jaya.test.conversion.controller;
 
-import com.jaya.test.conversao.controller.response.TransactionUserResponse;
-import com.jaya.test.conversao.service.TransactionService;
+import com.jaya.test.conversion.controller.response.TransactionUserResponse;
+import com.jaya.test.conversion.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

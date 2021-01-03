@@ -1,4 +1,4 @@
-package com.jaya.test.conversao.domain;
+package com.jaya.test.conversion.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

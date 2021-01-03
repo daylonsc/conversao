@@ -1,6 +1,6 @@
-package com.jaya.test.conversao.repository;
+package com.jaya.test.conversion.repository;
 
-import com.jaya.test.conversao.domain.UserMain;
+import com.jaya.test.conversion.domain.UserMain;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

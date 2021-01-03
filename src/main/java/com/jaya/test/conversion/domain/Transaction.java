@@ -1,4 +1,4 @@
-package com.jaya.test.conversao.domain;
+package com.jaya.test.conversion.domain;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

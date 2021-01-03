@@ -1,4 +1,4 @@
-package com.jaya.test.conversao;
+package com.jaya.test.conversion;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

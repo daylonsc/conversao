@@ -1,4 +1,4 @@
-package com.jaya.test.conversao.controller.request;
+package com.jaya.test.conversion.controller.request;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

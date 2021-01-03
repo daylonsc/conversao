@@ -1,4 +1,4 @@
-package com.jaya.test.conversao.exception;
+package com.jaya.test.conversion.exception;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;

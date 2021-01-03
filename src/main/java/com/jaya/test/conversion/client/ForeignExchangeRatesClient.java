@@ -1,6 +1,6 @@
-package com.jaya.test.conversao.client;
+package com.jaya.test.conversion.client;
 
-import com.jaya.test.conversao.controller.response.RateResponse;
+import com.jaya.test.conversion.controller.response.RateResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

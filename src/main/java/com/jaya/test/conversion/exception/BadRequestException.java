@@ -1,4 +1,4 @@
-package com.jaya.test.conversao.exception;
+package com.jaya.test.conversion.exception;
 
 public class BadRequestException extends RuntimeException {
 

@@ -1,8 +1,8 @@
-package com.jaya.test.conversao.controller;
+package com.jaya.test.conversion.controller;
 
-import com.jaya.test.conversao.controller.request.CurrencyRequest;
-import com.jaya.test.conversao.controller.response.CurrencyResponse;
-import com.jaya.test.conversao.service.CurrencyService;
+import com.jaya.test.conversion.controller.request.CurrencyRequest;
+import com.jaya.test.conversion.controller.response.CurrencyResponse;
+import com.jaya.test.conversion.service.CurrencyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
